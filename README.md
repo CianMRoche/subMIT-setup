@@ -81,7 +81,11 @@ A `home/.bashrc` file is used to change the functionality and appearance of BASH
 
 ```wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bashrc```
 
-Then if that .bashrc file is used, the next time one connects to subMIT via a new terminal, the interface should be slightly different and look like: 
+Then we need to tell the system to use that .bashrc file, which we do with a file called `.bash_profile`, an example of which is also on this github repo. Pull it to your home directory as with the .bashrc as
+
+```wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bash_profile```
+
+Then the next time one connects to subMIT via a new terminal, the interface should be slightly different and look like: 
 <p align="center">
     <img width="191" alt="bashrc_new" src="https://user-images.githubusercontent.com/29131312/169744360-96ff7735-c9b1-4867-bc7a-bb1950bfabe4.png">
   </p>
