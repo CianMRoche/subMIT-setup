@@ -5,6 +5,7 @@ channels:
   - conda-forge
 dependencies:
   - ipython
+  - ipykernel
   - jupyter
   - scipy
   - matplotlib
