@@ -72,9 +72,9 @@ If you don’t see "submit" as an option, click ‘configure ssh hosts’ and di
 <p align="center">
     <img width="234" alt="project" src="https://user-images.githubusercontent.com/29131312/169740816-4ebc0bd0-5eb1-4487-896b-d28248b1457e.png">
   </p>
-7. You can now create and edit files on the subMIT cluster using the VSCode interface or via any terminal as in the previous section.
+7. You can now create and edit files on the subMIT cluster using the VSCode interface or via any terminal as in the previous section. The rest of the setup will take place in the home directory, but we will eventually not use it very often.
 
-# Optional: Making the BASH terminal interface a little nicer
+# Making the BASH terminal interface a little nicer
 A `home/.bashrc` file is used to change the functionality and appearance of BASH terminals, so we can add one and add useful aliases and so on as we work. There is a `.bashrc` file available on this repo, so one could either make and edit a file called `.bashrc` in their home directory or pull it directly via a terminal connected to subMIT (and in their home directory) by running
 
 ```wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bashrc```
@@ -87,6 +87,19 @@ Note that the "06" above just refers to which computing node we have been logged
 
 # Setting up an Anaconda Environment
 We will use python for most of our analysis (though other languages likely _can_ be used on subMIT, we will be less capable of support for languages other than Python). To streamline the process of getting packages, we will install miniconda (a lightweight version of anaconda which also uses the "conda" package manager).
-1. To install miniconda,
+1. To download miniconda, from the home directory run `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+2. To install miniconda, run `bash Miniconda3-latest-Linux-x86_64.sh` and press (/hold) enter or type "yes" as required. **Important**: when you are prompted with
+```
+Do you wish the installer to initialize Miniconda3
+by running conda init? [yes|no]
+```
+make sure to type "yes" and hit enter. This adds lines to to your .bashrc file such that you automatically activate your base conda environment when opening a new terminal. If you missed it, then type `eval "$(/home/submit/roche/miniconda3/bin/conda shell.bash hook)"` followed by `conda init` then open a new terminal. After opening a new terminal, you should see the name of your conda environment (currently "base") as follows:
+<p align="center">
+    <img width="178" alt="base" src="https://user-images.githubusercontent.com/29131312/169746015-6ee15154-ca23-4877-83fb-6fc35e595209.png">
+  </p>
+
+3. Now that miniconda is installed and we are in our base environment, lets make a new environment with some packages that we will likely need. There is a file containing a list of packages and versions in this repo called "py3.yml" and we will use this as a good starting point. If you need any other packages later, simply activate this environment and run `conda install _ ` where _ represents the package of interest. To download the file, run `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/py3.yml` from the home directory.
+4. To make our environment (which we will give the name "py3") run `conda env create -f py3.yml` and let the installer finish, which will take some time.
+5. To activate the environment, run “conda activate py3” and you should see (base) turn to (py3) in your terminal. I typically add a line to my .bashrc which lets me type `env` that automatically activates my usual conda environment. Such a line is `alias env="conda activate py3"` though feel free to edit as desired, or not set an alias at all.
 
 
