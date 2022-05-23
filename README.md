@@ -113,7 +113,7 @@ We can use jupyter notebooks using kernels from our subMIT anaconda environments
     <img width="1278" alt="jupyterlab2" src="https://user-images.githubusercontent.com/29131312/169751583-2577341f-bad9-47ee-8d7e-ab47fa16029c.png">
   </p>
 
-If this works, spend some time getting used to the jupyterlab interface! Try going to "Help > Jupyter reference" as a good place to start. If you dont see that option, try refreshing the page. If that doesnt fix it, ask for help!
+If this works, spend some time getting used to the jupyterlab interface! Try going to "Help > Jupyter reference" as a good place to start. If you dont see that option, try refreshing the page. If that doesnt fix it, try activating the py3 conda environment, then running `ipython kernel install --user --name=py3kernel` to add a kernel. Refresh the page and check if this kernel shows up. If not, ask for help!
 
 ### Doing so in VSCode
 Using jupyter notebooks in a VSCode instance requires going to the extension manager on the left (of a remote VSCode instance which is connected to subMIT) and installing the "python" and "jupyter" extensions (and installing any others for which you are prompted on the bottom right when trying to start a kernel in a notebook). Upon doing so, you can quickly create a file such as `test.ipynb` and select a kernel on the top right. If all is working as expected, your list of kernels should be similar to the following:
