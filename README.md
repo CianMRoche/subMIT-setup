@@ -4,7 +4,7 @@ We have two choices for interfacing with the computing resources of the subMIT c
 1. Command line (terminal)
 2. An integrated development environment (IDE)
 
-Command line is simplest, but IDEs offer useful quality-of life features. We will discuss how to set up both. In eitehr case, the protocols for communicating between your PC and the cluster are handled by "SSH" (Secure SHell) which we'll explain briefly now.
+Command line is simplest, but IDEs offer useful quality-of life features. We will discuss how to set up both. In either case, the protocols for communicating between your PC and the cluster are handled by "SSH" (Secure SHell) which we'll explain briefly now.
 
 ### Note
 I will use `/home/` for home directories. On MAC or linux this can be represented by a tilde "~" and in Windows it will likely be `C:\Users\windows_username\` 
@@ -41,7 +41,9 @@ If you would prefer, you can also pull and edit an example config file from this
 
 [^1]: Shown is a Windows powershell instance
 
-# If you want to use an IDE (adds some complexity): Connecting remotely in Visual Studio Code
+# If you want to use an IDE: Connecting remotely in Visual Studio Code
+
+### Warning: This potentially adds some complexity and jupyterlab (used later in the "jupyter notebooks" section proviodes some of the same functionality)
 VSCode is an IDE that can be very useful, and will serve as the example for using an IDE. This section requires the previous section being already completed, in particular that you have created the "config" file of step 5.
 
 1. Install visual studio code in whatever form is appropriate for your system
@@ -68,7 +70,7 @@ VSCode is an IDE that can be very useful, and will serve as the example for usin
   </p>
 If you don’t see "submit" as an option, click ‘configure ssh hosts’ and direct it to your config file from earlier (perhaps via ‘specify a custom configuration file’). For more help, click the green button on the bottom left, then ‘getting started with SSH’.
 
-6. We are by default in the home directory. In reality we will use the "work" directory most often, as we have more storage available there. On the top left in VSCode, click File, Open Folder, and go to `/work/submit/kerberos_username` where you replace kerberos_username as appropriate. Click on the project manager icon on the left and then click the save icon. Name this project "subMIT" or "subMIT work" or similar. From now on clicking on this project in the project manager will take you to the "work" folder of your subMIT allocation. You can interface with the home directory via the terminals integrated into VSCode (open via the "+" near the bottom-right or by pressing " Ctrl + Shift + ` " where ` is probably the key left of the number 1 on your keyboard) or by changing the open folder as we did a moment ago.
+6. We are by default in the home directory. In reality we will use the "work" directory most often, as we have more storage available there. On the top left in VSCode, click File, Open Folder, and go to `/work/submit/kerberos_username` where you replace kerberos_username as appropriate. Click on the project manager icon on the left and then click the save icon. Name this project "subMIT" or "subMIT work" or similar. From now on clicking on this project in the project manager will take you to the "work" folder of your subMIT allocation. You can interface with the home directory via the terminals integrated into VSCode (open via the "+" near the bottom-right or by pressing " Ctrl + Shift + ` " where the backtick is probably the key left of the number 1 on your keyboard) or by changing the open folder as we did a moment ago.
 <p align="center">
     <img width="234" alt="project" src="https://user-images.githubusercontent.com/29131312/169740816-4ebc0bd0-5eb1-4487-896b-d28248b1457e.png">
   </p>
@@ -83,7 +85,7 @@ Then if that .bashrc file is used, the next time one connects to subMIT via a ne
 <p align="center">
     <img width="191" alt="bashrc_new" src="https://user-images.githubusercontent.com/29131312/169744360-96ff7735-c9b1-4867-bc7a-bb1950bfabe4.png">
   </p>
-Note that the "06" above just refers to which computing node we have been logged into, and may change with new logins.
+Note that the "06" above just refers to which computing node we have been logged into, and may change with new logins. If your terminal doesnt start with the new formatting, try typing `source ~/.bashrc`
 
 # Setting up an Anaconda Environment
 We will use python for most of our analysis (though other languages likely _can_ be used on subMIT, we will be less capable of support for languages other than Python). To streamline the process of getting packages, we will install miniconda (a lightweight version of anaconda which also uses the "conda" package manager).
@@ -101,6 +103,22 @@ make sure to type "yes" and hit enter. This adds lines to to your .bashrc file s
 3. Now that miniconda is installed and we are in our base environment, lets make a new environment with some packages that we will likely need. There is a file containing a list of packages and versions in this repo called "py3.yml" and we will use this as a good starting point. If you need any other packages later, simply activate this environment and run `conda install _ ` where _ represents the package of interest. To download the file, run `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/py3.yml` from the home directory.
 4. To make our environment (which we will give the name "py3") run `conda env create -f py3.yml` and let the installer finish, which can take quite a while.
 5. To activate the environment, run “conda activate py3” and you should see (base) turn to (py3) in your terminal. I typically add a line to my .bashrc which lets me type `env` that automatically activates my usual conda environment. Such a line is `alias env="conda activate py3"` and is included in the .bashrc from the previous section. simply typing `env` in the terminal will activate this "py3" environment.
+<p align="center">
+    <img width="176" alt="env" src="https://user-images.githubusercontent.com/29131312/169749228-1b7254f7-3611-486f-aa75-7ea243235dc3.png">
+  </p>
 
 # Jupyter notebooks
-We can use jupyter notebooks using kernels from our subMIT anaconda environments by going to https://submit00.mit.edu/jupyter . 
+We can use jupyter notebooks using kernels from our subMIT anaconda environments by going to https://submit00.mit.edu/jupyter . In the launcher you should see an option for a "py3" notebook, which would correspond to our anaconda environment.
+<p align="center">
+    <img width="1278" alt="jupyterlab2" src="https://user-images.githubusercontent.com/29131312/169751583-2577341f-bad9-47ee-8d7e-ab47fa16029c.png">
+  </p>
+
+If this works, spend some time getting used to the jupyterlab interface! Try going to "Help > Jupyter reference" as a good place to start. If you dont see that option, try refreshing the page. If that doesnt fix it, try activating the py3 conda environment, then running `ipython kernel install --user --name=py3kernel` to add a kernel. Refresh the page and check if this kernel shows up. If not, ask for help!
+
+### Doing so in VSCode
+Using jupyter notebooks in a VSCode instance requires going to the extension manager on the left (of a remote VSCode instance which is connected to subMIT) and installing the "python" and "jupyter" extensions (and installing any others for which you are prompted on the bottom right when trying to start a kernel in a notebook). Upon doing so, you can quickly create a file such as `test.ipynb` and select a kernel on the top right. If all is working as expected, your list of kernels should be similar to the following:
+<p align="center">
+    <img width="1277" alt="notebookVSCode" src="https://user-images.githubusercontent.com/29131312/169750342-fcbe2ab0-c1cd-4ec5-925d-0b4068e2d3a1.png">
+  </p>
+  
+As you may expect, "base" is the base conda environment, and "py3" is the one we created.
