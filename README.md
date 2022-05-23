@@ -4,7 +4,7 @@ We have two choices for interfacing with the computing resources of the subMIT c
 1. Command line (terminal)
 2. An integrated development environment (IDE)
 
-Command line is simplest, but IDEs offer useful quality-of life features. We will discuss how to set up both. In eitehr case, the protocols for communicating between your PC and the cluster are handled by "SSH" (Secure SHell) which we'll explain briefly now.
+Command line is simplest, but IDEs offer useful quality-of life features. We will discuss how to set up both. In either case, the protocols for communicating between your PC and the cluster are handled by "SSH" (Secure SHell) which we'll explain briefly now.
 
 ### Note
 I will use `/home/` for home directories. On MAC or linux this can be represented by a tilde "~" and in Windows it will likely be `C:\Users\windows_username\` 
