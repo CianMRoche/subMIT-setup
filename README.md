@@ -41,7 +41,9 @@ If you would prefer, you can also pull and edit an example config file from this
 
 [^1]: Shown is a Windows powershell instance
 
-# If you want to use an IDE (adds some complexity): Connecting remotely in Visual Studio Code
+# If you want to use an IDE: Connecting remotely in Visual Studio Code
+
+### Warning: This potentially adds some complexity and jupyterlab (used later in the "jupyter notebooks" section proviodes some of the same functionality)
 VSCode is an IDE that can be very useful, and will serve as the example for using an IDE. This section requires the previous section being already completed, in particular that you have created the "config" file of step 5.
 
 1. Install visual studio code in whatever form is appropriate for your system
@@ -106,4 +108,17 @@ make sure to type "yes" and hit enter. This adds lines to to your .bashrc file s
   </p>
 
 # Jupyter notebooks
-We can use jupyter notebooks using kernels from our subMIT anaconda environments by going to https://submit00.mit.edu/jupyter . 
+We can use jupyter notebooks using kernels from our subMIT anaconda environments by going to https://submit00.mit.edu/jupyter . In the launcher you should see an option for a "py3" notebook, which would correspond to our anaconda environment.
+<p align="center">
+    <img width="1278" alt="jupyterlab2" src="https://user-images.githubusercontent.com/29131312/169751583-2577341f-bad9-47ee-8d7e-ab47fa16029c.png">
+  </p>
+
+If this works, spend some time getting used to the jupyterlab interface! Try going to "Help > Jupyter reference" as a good place to start. If you dont see that option, try refreshing the page. If that doesnt fix it, ask for help!
+
+### Doing so in VSCode
+Using jupyter notebooks in a VSCode instance requires going to the extension manager on the left (of a remote VSCode instance which is connected to subMIT) and installing the "python" and "jupyter" extensions (and installing any others for which you are prompted on the bottom right when trying to start a kernel in a notebook). Upon doing so, you can quickly create a file such as `test.ipynb` and select a kernel on the top right. If all is working as expected, your list of kernels should be similar to the following:
+<p align="center">
+    <img width="1277" alt="notebookVSCode" src="https://user-images.githubusercontent.com/29131312/169750342-fcbe2ab0-c1cd-4ec5-925d-0b4068e2d3a1.png">
+  </p>
+  
+As you may expect, "base" is the base conda environment, and "py3" is the one we created.
