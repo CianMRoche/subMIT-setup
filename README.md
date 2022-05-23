@@ -99,7 +99,8 @@ make sure to type "yes" and hit enter. This adds lines to to your .bashrc file s
   </p>
 
 3. Now that miniconda is installed and we are in our base environment, lets make a new environment with some packages that we will likely need. There is a file containing a list of packages and versions in this repo called "py3.yml" and we will use this as a good starting point. If you need any other packages later, simply activate this environment and run `conda install _ ` where _ represents the package of interest. To download the file, run `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/py3.yml` from the home directory.
-4. To make our environment (which we will give the name "py3") run `conda env create -f py3.yml` and let the installer finish, which will take some time.
-5. To activate the environment, run “conda activate py3” and you should see (base) turn to (py3) in your terminal. I typically add a line to my .bashrc which lets me type `env` that automatically activates my usual conda environment. Such a line is `alias env="conda activate py3"` though feel free to edit as desired, or not set an alias at all.
+4. To make our environment (which we will give the name "py3") run `conda env create -f py3.yml` and let the installer finish, which can take quite a while.
+5. To activate the environment, run “conda activate py3” and you should see (base) turn to (py3) in your terminal. I typically add a line to my .bashrc which lets me type `env` that automatically activates my usual conda environment. Such a line is `alias env="conda activate py3"` and is included in the .bashrc from the previous section. simply typing `env` in the terminal will activate this "py3" environment.
 
-
+# Jupyter notebooks
+We can use jupyter notebooks using kernels from our subMIT anaconda environments by going to https://submit00.mit.edu/jupyter . 
