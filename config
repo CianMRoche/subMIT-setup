@@ -1,0 +1,3 @@
+Host submit
+    HostName submit.mit.edu 
+    User roche
