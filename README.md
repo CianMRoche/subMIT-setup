@@ -85,7 +85,7 @@ Then if that .bashrc file is used, the next time one connects to subMIT via a ne
 <p align="center">
     <img width="191" alt="bashrc_new" src="https://user-images.githubusercontent.com/29131312/169744360-96ff7735-c9b1-4867-bc7a-bb1950bfabe4.png">
   </p>
-Note that the "06" above just refers to which computing node we have been logged into, and may change with new logins.
+Note that the "06" above just refers to which computing node we have been logged into, and may change with new logins. If your terminal doesnt start with the new formatting, try typing `source ~/.bashrc`
 
 # Setting up an Anaconda Environment
 We will use python for most of our analysis (though other languages likely _can_ be used on subMIT, we will be less capable of support for languages other than Python). To streamline the process of getting packages, we will install miniconda (a lightweight version of anaconda which also uses the "conda" package manager).
