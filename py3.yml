@@ -12,6 +12,7 @@ dependencies:
   - astropy
   - astroquery
   - yaml
+  - tqdm
   - pyyaml
   - healpy
   - mpi4py
