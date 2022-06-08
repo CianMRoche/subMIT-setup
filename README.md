@@ -1,3 +1,6 @@
+# If you're having issues with logging in to subMIT even though you have a kerberos account
+Send an email to `submit-help@mit.edu` as they may need to add you to a list of allowed users.
+
 # How do we interface with the computing resources?
 
 We have two choices for interfacing with the computing resources of the subMIT cluster:
@@ -31,7 +34,7 @@ Host submit
     HostName submit.mit.edu 
     User kerberos_username
 ```
-If you would prefer, you can also pull and edit an example config file from this repo by running the command `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/config` **from the home/.ssh/ directory** and editing the kerberos username in a command line text editor like vim. To do so, run `vim config`, press "i" for insert mode, navigate the cursor to the username field and edit to your kerberos username, press "Esc", type ":wq" and then press enter (saves and quits).
+If you would prefer, you can also pull and edit an example config file from this repo by running the command (if you dont have wget you can use curl via `curl -O -J https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/config`) `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/config` **from the home/.ssh/ directory** and editing the kerberos username in a command line text editor like vim. To do so, run `vim config`, press "i" for insert mode, navigate the cursor to the username field and edit to your kerberos username, press "Esc", type ":wq" and then press enter (saves and quits).
 
 6. Now you can connect to subMIT by simply typing `ssh submit` and you will be signed in as usual
 <p align="center">
@@ -77,11 +80,11 @@ If you don’t see "submit" as an option, click ‘configure ssh hosts’ and di
 7. You can now create and edit files on the subMIT cluster using the VSCode interface or via any terminal as in the previous section. The rest of the setup will take place in the home directory, but we will eventually not use it very often.
 
 # Making the BASH terminal interface a little nicer
-A `home/.bashrc` file is used to change the functionality and appearance of BASH terminals, so we can add one and add useful aliases and so on as we work. There is a `.bashrc` file available on this repo, so one could either make and edit a file called `.bashrc` in their home directory or pull it directly via a terminal connected to subMIT (and in their home directory) by running
+A `home/.bashrc` file is used to change the functionality and appearance of BASH terminals, so we can add one and add useful aliases and so on as we work. There is a `.bashrc` file available on this repo, so one could either make and edit a file called `.bashrc` in their home directory or pull it directly via a terminal connected to subMIT (and in their home directory) by running (or `curl -O -J https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bashrc`)
 
 ```wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bashrc```
 
-Then we need to tell the system to use that .bashrc file, which we do with a file called `.bash_profile`, an example of which is also on this github repo. Pull it to your home directory as with the .bashrc as
+Then we need to tell the system to use that .bashrc file, which we do with a file called `.bash_profile`, an example of which is also on this github repo. Pull it to your home directory as with the .bashrc as (or `curl -O -J https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bash_profile`)
 
 ```wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/.bash_profile```
 
@@ -93,7 +96,7 @@ Note that the "06" above just refers to which computing node we have been logged
 
 # Setting up an Anaconda Environment
 We will use python for most of our analysis (though other languages likely _can_ be used on subMIT, we will be less capable of support for languages other than Python). To streamline the process of getting packages, we will install miniconda (a lightweight version of anaconda which also uses the "conda" package manager).
-1. To download miniconda, from the home directory run `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+1. To download miniconda, from the home directory run (or `curl -O -J https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`) `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`
 2. To install miniconda, run `bash Miniconda3-latest-Linux-x86_64.sh` and press (/hold) enter or type "yes" as required. **Important**: when you are prompted with
 ```
 Do you wish the installer to initialize Miniconda3
@@ -104,7 +107,7 @@ make sure to type "yes" and hit enter. This adds lines to to your .bashrc file s
     <img width="178" alt="base" src="https://user-images.githubusercontent.com/29131312/169746015-6ee15154-ca23-4877-83fb-6fc35e595209.png">
   </p>
 
-3. Now that miniconda is installed and we are in our base environment, lets make a new environment with some packages that we will likely need. There is a file containing a list of packages and versions in this repo called "py3.yml" and we will use this as a good starting point. If you need any other packages later, simply activate this environment and run `conda install _ ` where _ represents the package of interest. To download the file, run `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/py3.yml` from the home directory.
+3. Now that miniconda is installed and we are in our base environment, lets make a new environment with some packages that we will likely need. There is a file containing a list of packages and versions in this repo called "py3.yml" and we will use this as a good starting point. If you need any other packages later, simply activate this environment and run `conda install _ ` where _ represents the package of interest. To download the file, run (or `curl -O -J https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/py3.yml`) `wget https://raw.githubusercontent.com/CianMRoche/subMIT-setup/main/py3.yml` from the home directory.
 4. To make our environment (which we will give the name "py3") run `conda env create -f py3.yml` and let the installer finish, which can take quite a while.
 5. To activate the environment, run “conda activate py3” and you should see (base) turn to (py3) in your terminal. I typically add a line to my .bashrc which lets me type `env` that automatically activates my usual conda environment. Such a line is `alias env="conda activate py3"` and is included in the .bashrc from the previous section. simply typing `env` in the terminal will activate this "py3" environment.
 <p align="center">
