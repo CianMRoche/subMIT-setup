@@ -96,7 +96,7 @@ Note that the "06" above just refers to which computing node we have been logged
 
 # Setting up an Anaconda Environment
 We will use python for most of our analysis (though other languages likely _can_ be used on subMIT, we will be less capable of support for languages other than Python). To streamline the process of getting packages, we will install miniconda (a lightweight version of anaconda which also uses the "conda" package manager).
-1. To download miniconda, from the home directory run (or `curl -O -J https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`) `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+1. To download miniconda, from the home directory run (or `curl -O -J https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`) `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`. If that doesnt download any file (shows all zeros in the output) you may need to try an alternative url and type `curl -O -J https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
 2. To install miniconda, run `bash Miniconda3-latest-Linux-x86_64.sh` and press (/hold) enter or type "yes" as required. **Important**: when you are prompted with
 ```
 Do you wish the installer to initialize Miniconda3
