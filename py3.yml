@@ -29,4 +29,5 @@ dependencies:
   - seaborn
   - astroml
   - sympy
+  - numpy
   - theano
