@@ -96,13 +96,13 @@ Note that the "06" above just refers to which computing node we have been logged
 
 # Setting up an Anaconda Environment
 We will use python for most of our analysis (though other languages likely _can_ be used on subMIT, we will be less capable of support for languages other than Python). To streamline the process of getting packages, we will install miniconda (a lightweight version of anaconda which also uses the "conda" package manager). We will start in the **work** directory because anaconda can become quite large, and we only have a 5gb quota for our home directories. Move there via `cd /work/submit/kerberos_username` where you put in your kerberos username.
-1. To download miniconda, run (or `curl -O -J https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`) `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`. If that doesnt download any file (shows all zeros in the output) you may need to try an alternative url and type `curl -O -J https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+1. To download miniconda, run (or `curl -O -J https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`) `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`. If that doesnt download any file (shows all zeros in the output) you may need to try an alternative url and type `curl -O -J https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh` or the wget equivalent.
 2. To install miniconda, run `bash Miniconda3-latest-Linux-x86_64.sh` and press (/hold) enter or type "yes" as required. **Important**: when you are prompted with
 ```
 Do you wish the installer to initialize Miniconda3
 by running conda init? [yes|no]
 ```
-make sure to type "yes" and hit enter. This adds lines to to your .bashrc file such that you automatically activate your base conda environment when opening a new terminal. If you missed it, then type `eval "$(/home/submit/roche/miniconda3/bin/conda shell.bash hook)"` followed by `conda init` then open a new terminal. After opening a new terminal, you should see the name of your conda environment (currently "base") as follows:
+make sure to type "yes" and hit enter. This adds lines to to your .bashrc file such that you automatically activate your base conda environment when opening a new terminal. If you missed it, then type `eval "$(/home/submit/username/miniconda3/bin/conda shell.bash hook)"` where you replace "username", followed by `conda init` then open a new terminal. After opening a new terminal, you should see the name of your conda environment (currently "base") as follows:
 <p align="center">
     <img width="178" alt="base" src="https://user-images.githubusercontent.com/29131312/169746015-6ee15154-ca23-4877-83fb-6fc35e595209.png">
   </p>
