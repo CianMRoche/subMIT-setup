@@ -147,7 +147,7 @@ Then note the output in that terminal, as it will give you a URL which looks lik
     - `XXXX` -> the port you wish to use on your local machine, often people use 8888, but it may be in use so try 8889 or similar
     - `hostname:YYYY` -> from the above steps
     - `user@cluster` -> the usual info you would use to ssh into that cluster. If you have an ssh config file set up you can just type the ssh HostName here[^2]
-- Go to a local browser and type `localhost:8853` in the URL field
+- Go to a local browser and type `localhost:XXXX` in the URL field
 - Enter your password, and you will see the notebooks.
 
 [^2]: I.e. if you usually type `ssh clusterThatIWorkOn` then you can replace `user@cluster` above with `clusterThatIWorkOn`
