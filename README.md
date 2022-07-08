@@ -131,7 +131,7 @@ Using jupyter notebooks in a VSCode instance requires going to the extension man
 As you may expect, "base" is the base conda environment, and "py3" is the one we created.
 
 ### Manually running jupyter notebooks (general cluster instructions)
-Assume your cluster has an interactive compute node session utility, accessed by the command "idev" (interactive development, changes for each cluster). The following steps allow you to use its compute resources for a jupyter notebook which is accessed locally in your personal machine's browser.  
+Instructions courtesy of [Chelsea](https://hangchelseasu.github.io/). Assume your cluster has an interactive compute node session utility, accessed by the command "idev" (interactive development, changes for each cluster). The following steps allow you to use its compute resources for a jupyter notebook which is accessed locally in your personal machine's browser.  
 
 **On cluster:**  
 - Go to the directory you want to work in
